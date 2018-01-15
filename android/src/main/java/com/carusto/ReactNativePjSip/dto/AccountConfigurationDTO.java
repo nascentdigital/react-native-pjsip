@@ -11,6 +11,8 @@ public class AccountConfigurationDTO {
 
     public String username;
 
+    public String uri;
+
     public String domain;
 
     public String password;
@@ -96,6 +98,9 @@ public class AccountConfigurationDTO {
     }
 
     public String getIdUri() {
+        if (uri != null) {
+            return uri
+        }
         if (name != null) {
             return name + " <sip:"+ username +"@"+ domain +">";
         }
@@ -119,6 +124,7 @@ public class AccountConfigurationDTO {
         AccountConfigurationDTO c = new AccountConfigurationDTO();
         c.name = intent.getStringExtra("name");
         c.username = intent.getStringExtra("username");
+        c.uri = intent.getStringExtra("uri");
         c.domain = intent.getStringExtra("domain");
         c.password = intent.getStringExtra("password");
         c.proxy = intent.getStringExtra("proxy");
