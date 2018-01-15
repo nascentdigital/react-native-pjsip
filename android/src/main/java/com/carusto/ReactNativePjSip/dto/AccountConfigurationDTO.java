@@ -99,7 +99,7 @@ public class AccountConfigurationDTO {
 
     public String getIdUri() {
         if (uri != null) {
-            return uri
+            return uri;
         }
         if (name != null) {
             return name + " <sip:"+ username +"@"+ domain +">";
