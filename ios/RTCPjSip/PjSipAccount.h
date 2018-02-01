@@ -7,6 +7,7 @@
 @property int id;
 @property NSString * name;
 @property NSString * username;
+@property NSString * uri;
 @property NSString * domain;
 @property NSString * password;
 @property NSString * proxy;

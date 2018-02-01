@@ -16,6 +16,7 @@
 
     if (self) {
         self.name = config[@"name"] == nil ? [NSNull null] : config[@"name"];
+        self.uri = config[@"uri"] == nil ? [NSNull null] : config[@"uri"];
         self.username = config[@"username"];
         self.domain = config[@"domain"];
         self.password = config[@"password"];
@@ -49,6 +50,10 @@
                 cfgId = [NSString stringWithFormat:@"%@ <sip:%@@%@>", self.name, self.username, self.domain];
             } else {
                 cfgId = [NSString stringWithFormat:@"<sip:%@@%@>", self.username, self.domain];
+            }
+            
+            if (![PjSipUtil isEmptyString:self.uri]) {
+                cfgId = [NSString stringWithFormat:@"<%@>", self.uri];
             }
 
             cfg.id = pj_str((char *) [cfgId UTF8String]);
